@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 Features Demo</title>
+</head>
+<body>
+    
+    <h1>Open console for ES6 Features</h1>
+    <h2>ES6 Array Features</h2>
+    <h2>Map - Squares of Numbers</h2>
+    <p id="mapResult"></p>
+    
+    <h2>Filter - Even Numbers</h2>
+    <p id="filterResult"></p>
+    
+    <h2>Reduce - Sum of Numbers</h2>
+    <p id="reduceResult"></p>
+    
+    <h2>forEach - Numbers Multiplied by 2</h2>
+    <p id="forEachResult"></p>
+    
+    <script>
+        console.log("--- ES6 Features in Console ---");
+        
+        // Scope Example
+        function scopeExample() {
+            let a = 10;
+            if (true) {
+                let b = 20;
+                var c = 30;
+            }
+            console.log("Scope - a:", a);
+            console.log("Scope - c:", c); // ✅ Accessible due to function scope
+        }
+        scopeExample();
+
+        // let & const Example
+        let x = 5;
+        x = 10;
+        console.log("let - Updated x:", x);
+
+        const y = 15;
+        console.log("const - y:", y);
+
+        // Arrow Function Example
+        const multiply = (a, b) => a * b;
+        console.log("Arrow Function - Multiply 5x3:", multiply(5, 3));
+
+        // Object Example
+        const person = {
+            name: "Joza",
+            age: 32,
+            profession: "Front-end Developer",
+            greet: function () {
+                return `Hello, my name is ${this.name} and I am a ${this.profession}.`;
+            }
+        };
+        console.log("Object - Person Details:", person);
+        console.log("Object Method - Greet:", person.greet());
+
+        // Array Features - Displayed on Page
+        const numbers = [1, 2, 3, 4, 5];
+
+        // Map Example
+        const squares = numbers.map(num => num * num);
+        document.getElementById("mapResult").textContent = squares.join(", ");
+
+        // Filter Example
+        const evenNumbers = numbers.filter(num => num % 2 === 0);
+        document.getElementById("filterResult").textContent = evenNumbers.join(", ");
+
+        // Reduce Example
+        const sum = numbers.reduce((acc, num) => acc + num, 0);
+        document.getElementById("reduceResult").textContent = sum;
+
+        // forEach Example
+        let multipliedNumbers = [];
+        numbers.forEach(num => multipliedNumbers.push(num * 2));
+        document.getElementById("forEachResult").textContent = multipliedNumbers.join(", ");
+    </script>
+</body>
+</html>
